@@ -28,6 +28,7 @@ metadata:
   name: functionapp-service
   namespace: test
 spec:
+  type: LoadBalancer
   selector:
     app: function
   ports:
