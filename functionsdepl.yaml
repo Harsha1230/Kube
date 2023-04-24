@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: functionappdepl
+  labels:
+    app: function
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: function
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: functionapp
+        image: arcadisdataservicesdevtestharsha.azurecr.io/functions:1.0
+        ports:
+        - containerPort: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: functionapp-service
+  namespace: test
+spec:
+  selector:
+    app: function
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
