@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: nginxharsha
-        image: nginx:1.14.2
+        image: arcadisdataservicesdevtestharsha.azurecr.io/sample
         ports:
         - containerPort: 80
